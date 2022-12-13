@@ -38,5 +38,5 @@ Profile.propTypes = {
     views: PropTypes.number.isRequired,
     followers: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
-  }),
+  }).isRequired,
 };

@@ -1,9 +1,10 @@
 import css from './style.module.css';
+import { PropTypes } from 'prop-types';
 
 export const Statistics = ({ statistics, title }) => {
   return (
     <section className={css.statistics}>
-      <h2 className={css.title}>{title}</h2>
+      {title && <h2 className={css.title}>{title}</h2>}
 
       <ul className={css['stat-list']}>
         {statistics.map(({ label, percentage, id }) => {
@@ -17,4 +18,15 @@ export const Statistics = ({ statistics, title }) => {
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  statistics: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
