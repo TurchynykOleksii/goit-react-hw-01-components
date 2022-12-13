@@ -14,19 +14,26 @@ code {
     monospace;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  height: auto;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #dadbe3;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
 }

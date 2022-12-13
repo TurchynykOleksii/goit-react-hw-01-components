@@ -1,14 +1,13 @@
 import css from './Profile.module.css';
+import PropTypes from 'prop-types';
 
-export const Profile = ({ user }) => {
-  const { avatar, location, stats, tag, username } = user;
-
+export const Profile = ({ avatar, location, stats, tag, username }) => {
   return (
     <div className={css.profile}>
       <div className={css.description}>
         <img src={avatar} alt={username} className={css.avatar} />
         <p className={css.name}>{username}</p>
-        <p className={css.tag}>{tag}</p>
+        <p className={css.tag}>@{tag}</p>
         <p className={css.location}>{location}</p>
       </div>
 
@@ -28,4 +27,16 @@ export const Profile = ({ user }) => {
       </ul>
     </div>
   );
+};
+//avatar, location, stats, tag, username
+Profile.propTypes = {
+  username: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    views: PropTypes.number.isRequired,
+    followers: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
 };
