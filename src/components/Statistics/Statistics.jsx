@@ -6,7 +6,7 @@ export const Statistics = ({ statistics, title }) => {
     <section className={css.statistics}>
       {title && <h2 className={css.title}>{title}</h2>}
 
-      <ul className={css['stat-list']}>
+      <ul className={css.statList}>
         {statistics.map(({ label, percentage, id }) => {
           return (
             <li key={id} className={css.item}>
@@ -21,12 +21,12 @@ export const Statistics = ({ statistics, title }) => {
 };
 
 Statistics.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   statistics: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    })
+    }).isRequired
   ).isRequired,
 };

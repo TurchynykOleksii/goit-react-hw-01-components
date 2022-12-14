@@ -24,10 +24,8 @@
 }
 
 .offline {
-  width: 15px;
-  height: 15px;
+  composes: online;
   background-color: red;
-  border-radius: 50%;
 }
 
 .avatar {
